@@ -1,0 +1,52 @@
+// Bootstrap SCSS
+@import "bootstrap";
+
+$primary: #007e8d;
+$secondary: #6c757d;
+$body-bg: #f8f9fa;
+$text-color: #212529;
+
+// Body-Styling
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $body-bg;
+}
+
+//
+.sticky-header {
+  @extend .bg-primary;
+  color: $white;
+  padding: 10px;
+
+  a {
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+// Footer
+footer {
+    background-color: #e9ecef; 
+    color: $text-color;
+    padding: 11px 0;
+    margin: 11px 0 0 0;
+    border-top: 2px solid #dee2e6; 
+  
+    a {
+      color: $primary;
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    text-align: center; // Zentrierter Text
+  }
