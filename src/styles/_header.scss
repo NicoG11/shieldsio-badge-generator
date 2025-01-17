@@ -1,0 +1,27 @@
+// Header-Styling
+.header {
+    background: linear-gradient(to bottom, rgb(233, 236, 239), rgba(233, 236, 239, 0.9));
+    color: #444;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(233, 236, 239, 0.2);
+    margin-bottom: 24px;
+    
+  
+    h1 {
+      color: $primary;
+      font-size: 3rem;
+      text-shadow: 0px 1px 2px #444;
+      margin-bottom: 2rem;
+
+      span{
+        color: $secondary;
+      }
+    }
+
+    img{
+        height: 2.25rem;
+        margin-bottom: 2rem;
+    }
+  }

@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear();
 
+const Footer: React.FC = () => {
   return (
     <footer>
       <div className="container">
         <p>
           Created with ❤️ by <a href="https://github.com/NicoG11">NicoG11</a>
         </p>
-        <p>{currentYear}</p>
+        <p className="mb-0">{currentYear}</p>
       </div>
     </footer>
   );
