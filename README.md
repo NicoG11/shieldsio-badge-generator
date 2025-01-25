@@ -1,28 +1,31 @@
 ![buildprocess](https://github.com/NicoG11/shieldsio-badge-generator/actions/workflows/deploy.yml/badge.svg?event=push)
 
 # shields.io-badge-generator
+
 A simple shields.io static badge generator with preview.
 
---- 
+---
 
 ## Changelog
 
 All notable changes to this project will be documented here.
+
 ## [0.0.2] - 2025-01-25
-  
-  - add workflow to push to gh page
-  - tests of the workflow and fixes the config base path
+
+- add workflow to push to gh page
+- tests of the workflow and fixes the config base path
 
 ## [0.0.1] - 2025-01-04
 
-  - init the repo
+- init the repo
 
 ### Added
+
 - created folder structure with vite-create, i choose React with TypeScript
 
-
 ---
-i used the 
+
+i used the
 
 # React + TypeScript + Vite Template
 
@@ -41,14 +44,14 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
+    languageOptions: {
+        // other options...
+        parserOptions: {
+            project: ['./tsconfig.node.json', './tsconfig.app.json'],
+            tsconfigRootDir: import.meta.dirname,
+        },
     },
-  },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -57,20 +60,20 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from 'eslint-plugin-react';
 
 export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+    // Set the react version
+    settings: { react: { version: '18.3' } },
+    plugins: {
+        // Add the react plugin
+        react,
+    },
+    rules: {
+        // other rules...
+        // Enable its recommended rules
+        ...react.configs.recommended.rules,
+        ...react.configs['jsx-runtime'].rules,
+    },
+});
 ```
