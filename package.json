@@ -1,28 +1,29 @@
 {
-    "name": "shieldsio-badge-generator",
-    "private": true,
-    "version": "0.0.1",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "tsc -b && vite build",
-        "preview": "vite preview",
-        "format": "biome format .",
-        "lint": "biome check ."
-    },
-    "dependencies": {
-        "bootstrap": "^5.3.3",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0"
-    },
-    "devDependencies": {
-        "@biomejs/biome": "1.9.4",
-        "@types/react": "^19.0.07",
-        "@types/react-dom": "^19.0.3",
-        "@vitejs/plugin-react-swc": "^3.5.0",
-        "globals": "^15.14.0",
-        "sass": "^1.83.4",
-        "typescript": "~5.7.3",
-        "vite": "^6.0.5"
-    }
+	"name": "shieldsio-badge-generator",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"preview": "vite preview",
+		"format": "npx @biomejs/biome format --write .",
+		"lint": "npx @biomejs/biome lint --write .",
+		"check": "npx @biomejs/biome check --write ."
+	},
+	"dependencies": {
+		"bootstrap": "^5.3.3",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/react": "^19.0.07",
+		"@types/react-dom": "^19.0.3",
+		"@vitejs/plugin-react-swc": "^3.5.0",
+		"globals": "^15.14.0",
+		"sass": "^1.83.4",
+		"typescript": "~5.7.3",
+		"vite": "^6.0.5"
+	}
 }
