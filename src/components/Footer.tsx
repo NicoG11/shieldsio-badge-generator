@@ -1,4 +1,4 @@
-import { motion, useAnimationFrame } from "motion/react";
+import { motion } from "motion/react";
 import type React from "react";
 
 const currentYear = new Date().getFullYear();
