@@ -3,7 +3,7 @@ import React from 'react';
 
 const Header: React.FC = () => {
 
-    const badgeUrl = `https://img.shields.io/badge/shields.io-Badge%20Generator-blue?style=flat`;
+    const badgeUrl:string = `https://img.shields.io/badge/shields.io-Badge%20Generator-blue?style=flat`;
 
 
   
