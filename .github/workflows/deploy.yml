@@ -1,7 +1,6 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Automatisches Deployment bei Pushes auf den main-Branch
   push:
     branches:
       - main
