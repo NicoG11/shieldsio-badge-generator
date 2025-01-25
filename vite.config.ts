@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react-swc'
 // https://vite.dev/config/
 export default defineConfig(({ command }) =>({
   plugins: [react()],
-  base: command === 'build' ? '/shields-io-badge-generator/' : '/',
+  base: command === 'build' ? '/shieldsio-badge-generator/' : '/',
   // build: {
   //   outDir: 'docs',
   // },
