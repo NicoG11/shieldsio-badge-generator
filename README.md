@@ -6,18 +6,22 @@ A simple shields.io static badge generator with preview.
 ## Changelog
 
 All notable changes to this project will be documented here.
+## [0.0.2] - 2025-01-25
+  
+  - add workflow to push to gh page
 
 ## [0.0.1] - 2025-01-04
 
-init the repo
+  - init the repo
 
 ### Added
 - created folder structure with vite-create, i choose React with TypeScript
 
 
 ---
+i used the 
 
-# React + TypeScript + Vite
+# React + TypeScript + Vite Template
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
