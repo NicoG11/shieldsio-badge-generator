@@ -1,45 +1,45 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
-  # Manuelles Starten aus dem Actions-Tab
-  workflow_dispatch:
+    # Manuelles Starten aus dem Actions-Tab
+    workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+    contents: read
+    pages: write
+    id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    group: 'pages'
+    cancel-in-progress: false
 
 jobs:
-  # Build job
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    # Build job
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 23
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 23
 
-      - name: Install dependencies
-        run: npm install
+            - name: Install dependencies
+              run: npm install
 
-      - name: Build application
-        run: npm run build
+            - name: Build application
+              run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
+            - name: Upload build artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: ./dist
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+            - name: Deploy to GitHub Pages
+              uses: actions/deploy-pages@v4
