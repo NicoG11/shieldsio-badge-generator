@@ -1,3 +1,5 @@
+![buildprocess](https://github.com/NicoG11/shieldsio-badge-generator/actions/workflows/deploy.yml/badge.svg?event=push)
+
 # shields.io-badge-generator
 A simple shields.io static badge generator with preview.
 
