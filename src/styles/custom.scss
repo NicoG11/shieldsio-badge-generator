@@ -1,5 +1,5 @@
 // Bootstrap SCSS
-@import "bootstrap";
+@import 'bootstrap';
 $primary: #0284c7;
 $secondary: #6c757d;
 $text-color: #444;
@@ -9,10 +9,7 @@ $text-color: #444;
 @import '_footer';
 @import '_main';
 
-
-
 body {
-  background-color: #f8f9fa;
-  color: $text-color;
+    background-color: #f8f9fa;
+    color: $text-color;
 }
-
