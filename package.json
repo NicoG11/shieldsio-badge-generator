@@ -19,12 +19,12 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@types/react": "^19.0.07",
+		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",
 		"@vitejs/plugin-react-swc": "^3.5.0",
 		"globals": "^15.14.0",
 		"sass": "^1.83.4",
 		"typescript": "~5.7.3",
-		"vite": "^6.0.5"
+		"vite": "^6.0.11"
 	}
 }

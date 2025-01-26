@@ -15,10 +15,10 @@ const Header: React.FC = () => {
 	);
 
 	const h1Size = useTransform(scrollY, [0, 150], ["3rem;", "1.5rem"]);
-	const h1PositionX = useTransform(scrollY, [0, 150], ["0", "-25%"]);
+	const h1PositionX = useTransform(scrollY, [0, 150], ["0", "-15%"]);
 
 	const imgHeight = useTransform(scrollY, [0, 150], ["2.25rem", "1.5rem"]);
-	const imgPositionX = useTransform(scrollY, [0, 150], ["0", "100%"]);
+	const imgPositionX = useTransform(scrollY, [0, 150], ["0", "120%"]);
 	const imgPositionY = useTransform(scrollY, [0, 150], ["0", "-60px"]);
 
 	return (
