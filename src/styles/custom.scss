@@ -3,13 +3,40 @@
 $primary: #0284c7;
 $secondary: #6c757d;
 $text-color: #444;
+
+$gap: 8rem;
+
 // wait till bootstrap use @use , then rewrite without @import
 @import '_fonts';
 @import '_header';
 @import '_footer';
 @import '_main';
+@import '_stepper';
+@import '_badge_preview';
 
 body {
     background-color: #f8f9fa;
     color: $text-color;
+}
+
+.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+
+    &:hover {
+        background-color: darken($primary, 10%);
+        border-color: darken($primary, 10%);
+    }
+}
+
+
+
+.btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+
+    &:hover {
+        background-color: $primary;
+        color: white;
+    }
 }

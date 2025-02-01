@@ -11,12 +11,12 @@ const Footer: React.FC = () => {
 					Created with{" "}
 					<motion.span
 						animate={{
-							scale: [1, 1.5, 1.5, 1, 1],
+							scale: [1, 1.5, 1],
 						}}
 						transition={{
 							duration: 2,
 							ease: "easeInOut",
-							times: [0, 0.2, 0.5, 0.8, 1],
+							times: [0, 0.5, 1],
 							repeat: Number.POSITIVE_INFINITY,
 							repeatDelay: 1,
 						}}
