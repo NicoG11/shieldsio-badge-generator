@@ -65,6 +65,9 @@
             &.active {
                 color: $primary;
                 font-weight: bold;
+                transform: rotateZ(-45deg) translateY(-4px) translateX(-4px);
+
+
             }
         }
 
@@ -76,6 +79,13 @@
         margin: 0 auto;
         max-width: min(1200px, 100%);
         padding: 1rem;
+
+
+        .step-description {
+            font-size: 1.25rem;
+            color: $secondary;
+            margin-bottom: 1rem;
+        }
     }
 
 

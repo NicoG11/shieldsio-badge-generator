@@ -1,4 +1,5 @@
 import React from "react";
+import UnderConstruction from "../UnderConstruction";
 
 const Step2: React.FC = () => {
 	return (
@@ -8,6 +9,7 @@ const Step2: React.FC = () => {
 				If not specified, the default style for this badge is "flat".
 				<div>flat, flat-square, plastic, for-the-badge, social</div>
 				select for options
+				<UnderConstruction />
 			</div>
 		</>
 	);
