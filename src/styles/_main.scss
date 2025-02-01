@@ -1,19 +1,26 @@
+@use "sass:math";
+
 main {
     padding: 2rem;
-    padding-top: 18rem;
+    padding-top: $gap;
     padding-bottom: 11rem;
     min-height: 100vh;
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+        padding-top: $gap;
+    }
 }
 
 .hero {
     text-align: center;
     padding: 3rem 2rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 300;
     line-height: 1.5;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    margin: 0 auto 4rem auto;
-    max-width: 800px;
+    margin: $gap auto math.div($gap, 2);
+    max-width: min(1200px, 90%);
     background-color: rgba(233, 236, 239, 0.9);
 }
