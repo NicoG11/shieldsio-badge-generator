@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented here.
 
+### [0.0.2] - 2025-02-01
+
+- add step 1
+- add preview
+- add copy icon in preview
+
 ### [0.0.1] - 2025-01-25
 
 - add motion.dev for header and footer
