@@ -1,20 +1,26 @@
 import type React from "react";
 import Hero from "../components/Hero";
 
-import Stepper from "../components/Stepper";
+// import Stepper from "../components/Stepper";
 import { StepperProvider } from "../contexts/StepperContext";
-import StepContent from "../components/StepperContent";
+// import StepContent from "../components/StepperContent";
 import BadgePreview from "../components/BadgePreview";
+import InputsAccordion from "../components/InputsAccordion";
 
 const Home: React.FC = () => {
 	return (
 		<>
 			<Hero />
 			<StepperProvider>
-				<div className="stepperWrapper">
+				{/* <div className="stepperWrapper">
 					<Stepper />
-					<StepContent />
+					<StepContent /> 
+					</div>
+				*/}
+				<div className="inputWrapper">
+					<InputsAccordion />
 				</div>
+
 				<BadgePreview />
 			</StepperProvider>
 		</>

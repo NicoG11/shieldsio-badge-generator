@@ -14,7 +14,7 @@ const types: BadgeType[] = [
 ];
 
 const BadgePreview: React.FC = () => {
-	const { badgeContent } = useStepper();
+	const { badgeContent, style, logo, logoColor } = useStepper();
 
 	const [copied, setCopied] = useState<string | null>(null);
 
@@ -25,13 +25,31 @@ const BadgePreview: React.FC = () => {
 		});
 	};
 
+	let badgeUrl = badgeContent
+		? `https://img.shields.io/badge/${badgeContent.replace(/\s+/g, "_")}`
+		: "https://img.shields.io/badge/example-Preview-blue";
+
+	const queryParams = new URLSearchParams();
+	if (style) {
+		queryParams.set("style", style);
+	}
+
+	if (logo !== "") {
+		queryParams.set("logo", logo);
+	}
+
+	if (logoColor !== "") {
+		queryParams.set("logoColor", logoColor);
+	}
+
+	if (queryParams.toString()) {
+		badgeUrl += `?${queryParams.toString()}`;
+	}
+
 	return (
 		<div className="badge-preview">
 			<h5>Vorschau:</h5>
-			<img
-				src={`https://img.shields.io/badge/${badgeContent.replace(/\s+/g, "_")}`}
-				alt="Badge Preview"
-			/>
+			<img src={badgeUrl} alt="Badge Preview" />
 
 			{types.map((t) => (
 				<PreviewSection
@@ -39,6 +57,7 @@ const BadgePreview: React.FC = () => {
 					type={t.type}
 					copied={copied}
 					copyToClipboard={copyToClipboard}
+					badgeUrl={badgeUrl}
 				/>
 			))}
 		</div>
@@ -51,19 +70,14 @@ interface PreviewSectionProps {
 	type: "url" | "md" | "html"; // Nur erlaubte Werte
 	copied: string | null;
 	copyToClipboard: (text: string, type: string) => void;
+	badgeUrl: string;
 }
 const PreviewSection = (props: PreviewSectionProps) => {
-	const { badgeContent } = useStepper();
-
-	const badgeUrl = badgeContent
-		? `https://img.shields.io/badge/${badgeContent.replace(/\s+/g, "_")}`
-		: "https://img.shields.io/badge/example-Preview-blue";
-
 	// Dynamischer Code für die verschiedenen Typen
 	const codeSnippets: Record<string, string> = {
-		url: badgeUrl,
-		md: `![Static Badge](${badgeUrl})`,
-		html: `<img src="${badgeUrl}" alt="Static Badge" />`,
+		url: props.badgeUrl,
+		md: `![Static Badge](${props.badgeUrl})`,
+		html: `<img src="${props.badgeUrl}" alt="Static Badge" />`,
 	};
 
 	return (

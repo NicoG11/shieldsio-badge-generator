@@ -5,6 +5,12 @@ type StepperContextType = {
 	setCurrentStep: (step: number) => void;
 	badgeContent: string;
 	setBadgeContent: (content: string) => void;
+	style: string;
+	setStyle: (style: string) => void;
+	logo: string;
+	setLogo: (logo: string) => void;
+	logoColor: string;
+	setLogoColor: (color: string) => void;
 };
 
 const StepperContext = createContext<StepperContextType | undefined>(undefined);
@@ -14,12 +20,21 @@ export const StepperProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
 	const [currentStep, setCurrentStep] = useState(0);
 	const [badgeContent, setBadgeContent] = useState("example-Preview-blue");
+	const [style, setStyle] = useState("flat");
+	const [logo, setLogo] = useState("");
+	const [logoColor, setLogoColor] = useState("");
 
 	const value = {
 		currentStep,
 		setCurrentStep,
 		badgeContent,
 		setBadgeContent,
+		style,
+		setStyle,
+		logo,
+		setLogo,
+		logoColor,
+		setLogoColor,
 	};
 
 	return (

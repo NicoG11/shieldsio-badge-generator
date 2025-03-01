@@ -12,6 +12,10 @@ const Step1: React.FC = () => {
 			</div>
 			<div className="card-body">
 				<div className="step-description">
+					<p>
+						Here you can define the content of the badge. The badge content is
+						constructed as follows:
+					</p>
 					<ul>
 						<li>
 							<span>Start:</span> Label
@@ -23,6 +27,28 @@ const Step1: React.FC = () => {
 							<span>End:</span> color
 						</li>
 					</ul>
+					<p>Special characters are replaced as follows:</p>
+					<ul>
+						<li>
+							<span>
+								Underscore <code>_</code> or <code>%20</code> becomes:
+							</span>{" "}
+							Space
+						</li>
+						<li>
+							<span>
+								Double underscore <code>__</code> becomes:
+							</span>{" "}
+							Single Underscore _
+						</li>
+						<li>
+							<span>
+								Double dash <code>--</code>:
+							</span>{" "}
+							Dash -
+						</li>
+					</ul>
+
 					<div className="example">
 						<span>Example:</span> <code>example-Preview-blue</code>
 					</div>

@@ -111,3 +111,27 @@
         }
     }
 }
+
+
+.inputWrapper {
+    @extend .card;
+
+    width: 100%;
+    margin: 1rem auto;
+    max-width: min(1200px, 100%);
+}
+
+.color-picker-container {
+    position: relative;
+}
+
+.color-picker-popup {
+    position: absolute;
+    z-index: 1000;
+    top: calc(100% + 5px);
+    left: 0;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
