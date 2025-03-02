@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented here.
 
+### [0.0.3] - 2025-03-02
+- add accordion and removed steps
+- add some more parameter
+
 ### [0.0.2] - 2025-02-01
 
 - add step 1
