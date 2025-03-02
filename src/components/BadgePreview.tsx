@@ -14,7 +14,16 @@ const types: BadgeType[] = [
 ];
 
 const BadgePreview: React.FC = () => {
-	const { badgeContent, style, logo, logoColor } = useStepper();
+	const {
+		badgeContent,
+		style,
+		logo,
+		logoColor,
+		logoSize,
+		label,
+		labelColor,
+		color,
+	} = useStepper();
 
 	const [copied, setCopied] = useState<string | null>(null);
 
@@ -40,6 +49,22 @@ const BadgePreview: React.FC = () => {
 
 	if (logoColor !== "") {
 		queryParams.set("logoColor", logoColor);
+	}
+
+	if (logoSize !== "") {
+		queryParams.set("logoSize", logoSize);
+	}
+
+	if (label !== "") {
+		queryParams.set("label", label);
+	}
+
+	if (labelColor !== "") {
+		queryParams.set("labelColor", labelColor);
+	}
+
+	if (color !== "") {
+		queryParams.set("color", color);
 	}
 
 	if (queryParams.toString()) {

@@ -11,6 +11,18 @@ type StepperContextType = {
 	setLogo: (logo: string) => void;
 	logoColor: string;
 	setLogoColor: (color: string) => void;
+	logoSize: string;
+	setLogoSize: (size: string) => void;
+	label: string;
+	setLabel: (label: string) => void;
+	labelColor: string;
+	setLabelColor: (color: string) => void;
+	color: string;
+	setColor: (color: string) => void;
+	cacheSeconds: string;
+	setCacheSeconds: (seconds: string) => void;
+	link: string;
+	setLink: (link: string) => void;
 };
 
 const StepperContext = createContext<StepperContextType | undefined>(undefined);
@@ -23,6 +35,12 @@ export const StepperProvider: React.FC<{ children: ReactNode }> = ({
 	const [style, setStyle] = useState("flat");
 	const [logo, setLogo] = useState("");
 	const [logoColor, setLogoColor] = useState("");
+	const [logoSize, setLogoSize] = useState("");
+	const [label, setLabel] = useState("");
+	const [labelColor, setLabelColor] = useState("");
+	const [color, setColor] = useState("");
+	const [cacheSeconds, setCacheSeconds] = useState("");
+	const [link, setLink] = useState("");
 
 	const value = {
 		currentStep,
@@ -35,6 +53,18 @@ export const StepperProvider: React.FC<{ children: ReactNode }> = ({
 		setLogo,
 		logoColor,
 		setLogoColor,
+		logoSize,
+		setLogoSize,
+		label,
+		setLabel,
+		labelColor,
+		setLabelColor,
+		color,
+		setColor,
+		cacheSeconds,
+		setCacheSeconds,
+		link,
+		setLink,
 	};
 
 	return (

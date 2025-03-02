@@ -33,6 +33,30 @@ const InputsAccordion = () => {
 					<Step4 />
 				</Accordion.Body>
 			</Accordion.Item>
+			<Accordion.Item eventKey="4">
+				<Accordion.Header>Logo Size</Accordion.Header>
+				<Accordion.Body>
+					<Step5 />
+				</Accordion.Body>
+			</Accordion.Item>
+			<Accordion.Item eventKey="5">
+				<Accordion.Header>Left Hand Label</Accordion.Header>
+				<Accordion.Body>
+					<Step6 />
+				</Accordion.Body>
+			</Accordion.Item>
+			<Accordion.Item eventKey="6">
+				<Accordion.Header>Left Hand Badge Color</Accordion.Header>
+				<Accordion.Body>
+					<Step7 />
+				</Accordion.Body>
+			</Accordion.Item>
+			<Accordion.Item eventKey="7">
+				<Accordion.Header>Right Hand Badge Color</Accordion.Header>
+				<Accordion.Body>
+					<Step8 />
+				</Accordion.Body>
+			</Accordion.Item>
 		</Accordion>
 	);
 };
@@ -173,7 +197,7 @@ const Step3 = () => {
 	);
 };
 
-// logo
+// logoColor
 const Step4 = () => {
 	const { logoColor, setLogoColor } = useStepper();
 	const [showPicker, setShowPicker] = useState(false);
@@ -222,6 +246,13 @@ const Step4 = () => {
 							cursor: "pointer",
 						}}
 						onClick={() => setShowPicker(!showPicker)}
+						onKeyDown={(e) => {
+							if (e.key === "Enter" || e.key === " ") {
+								setShowPicker(!showPicker);
+							}
+						}}
+						role="button"
+						tabIndex={0}
 					/>
 				</div>
 
@@ -231,6 +262,220 @@ const Step4 = () => {
 							style={{ width: "200px" }}
 							color={logoColor}
 							onChange={(color) => setLogoColor(color.hex)}
+						/>
+					</div>
+				)}
+			</div>
+		</>
+	);
+};
+
+// logo size
+const Step5 = () => {
+	const { logoSize, setLogoSize } = useStepper();
+	return (
+		<>
+			<div className="step-description">
+				<p>
+					Make icons adaptively resize by setting auto. Useful for some wider
+					logos like amd and amg. Supported for simple-icons logos but not for
+					custom logos.
+				</p>
+
+				<div className="example">
+					<span>Example:</span> <code>auto</code>
+				</div>
+			</div>
+			<div className="form-floating mb-3">
+				<input
+					type="text"
+					className="form-control"
+					id="floatingInput"
+					placeholder="Make icons adaptively resize by setting auto"
+					value={logoSize}
+					onChange={(e) => setLogoSize(e.target.value)}
+				/>
+				<label htmlFor="floatingInput">logo size</label>
+			</div>
+		</>
+	);
+};
+
+// left hand label
+const Step6 = () => {
+	const { label, setLabel } = useStepper();
+	return (
+		<>
+			<div className="step-description">
+				<p>
+					Override the default left-hand-side text (
+					<a
+						href="https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding"
+						target="_blank"
+						rel="noreferrer"
+					>
+						URL-Encoding
+					</a>{" "}
+					needed for spaces or special characters!)
+				</p>
+
+				<div className="example">
+					<span>Example:</span> <code>healthiness</code>
+				</div>
+			</div>
+			<div className="form-floating mb-3">
+				<input
+					type="text"
+					className="form-control"
+					id="floatingInput"
+					placeholder="Override the default left-hand-side text"
+					value={label}
+					onChange={(e) => setLabel(e.target.value)}
+				/>
+				<label htmlFor="floatingInput">label</label>
+			</div>
+		</>
+	);
+};
+
+// left hand label color
+const Step7 = () => {
+	const { labelColor, setLabelColor } = useStepper();
+	const [showPicker, setShowPicker] = useState(false);
+	const pickerRef = useRef<HTMLDivElement>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				pickerRef.current &&
+				!pickerRef.current.contains(event.target as Node) &&
+				!inputRef.current?.contains(event.target as Node)
+			) {
+				setShowPicker(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, []);
+	return (
+		<>
+			<div className="step-description">
+				<p>
+					Background color of the left part (hex, rgb, rgba, hsl, hsla and css
+					named colors supported).
+				</p>
+			</div>
+
+			<div className="color-picker-container">
+				<div className="input-group mb-3">
+					<input
+						ref={inputRef}
+						type="text"
+						className="form-control"
+						placeholder="Enter color (e.g. #FF0000 or red)"
+						value={labelColor}
+						onChange={(e) => setLabelColor(e.target.value)}
+						onClick={() => setShowPicker(true)}
+					/>
+					<div
+						className="input-group-text"
+						style={{
+							backgroundColor: labelColor,
+							width: "40px",
+							cursor: "pointer",
+						}}
+						onClick={() => setShowPicker(!showPicker)}
+						onKeyDown={(e) => {
+							if (e.key === "Enter" || e.key === " ") {
+								setShowPicker(!showPicker);
+							}
+						}}
+						role="button"
+						tabIndex={0}
+					/>
+				</div>
+
+				{showPicker && (
+					<div ref={pickerRef} className="color-picker-popup">
+						<Sketch
+							style={{ width: "200px" }}
+							color={labelColor}
+							onChange={(color) => setLabelColor(color.hex)}
+						/>
+					</div>
+				)}
+			</div>
+		</>
+	);
+};
+
+// right hand color
+const Step8 = () => {
+	const { color, setColor } = useStepper();
+	const [showPicker, setShowPicker] = useState(false);
+	const pickerRef = useRef<HTMLDivElement>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				pickerRef.current &&
+				!pickerRef.current.contains(event.target as Node) &&
+				!inputRef.current?.contains(event.target as Node)
+			) {
+				setShowPicker(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, []);
+	return (
+		<>
+			<div className="step-description">
+				<p>
+					Background color of the right part (hex, rgb, rgba, hsl, hsla and css
+					named colors supported).
+				</p>
+			</div>
+
+			<div className="color-picker-container">
+				<div className="input-group mb-3">
+					<input
+						ref={inputRef}
+						type="text"
+						className="form-control"
+						placeholder="Enter color (e.g. #FF0000 or red)"
+						value={color}
+						onChange={(e) => setColor(e.target.value)}
+						onClick={() => setShowPicker(true)}
+					/>
+					<div
+						className="input-group-text"
+						style={{
+							backgroundColor: color,
+							width: "40px",
+							cursor: "pointer",
+						}}
+						onClick={() => setShowPicker(!showPicker)}
+						onKeyDown={(e) => {
+							if (e.key === "Enter" || e.key === " ") {
+								setShowPicker(!showPicker);
+							}
+						}}
+						role="button"
+						tabIndex={0}
+					/>
+				</div>
+
+				{showPicker && (
+					<div ref={pickerRef} className="color-picker-popup">
+						<Sketch
+							style={{ width: "200px" }}
+							color={color}
+							onChange={(color) => setColor(color.hex)}
 						/>
 					</div>
 				)}
