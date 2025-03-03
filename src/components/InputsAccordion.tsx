@@ -57,6 +57,12 @@ const InputsAccordion = () => {
 					<Step8 />
 				</Accordion.Body>
 			</Accordion.Item>
+			<Accordion.Item eventKey="8">
+				<Accordion.Header>Cache Seconds</Accordion.Header>
+				<Accordion.Body>
+					<Step9 />
+				</Accordion.Body>
+			</Accordion.Item>
 		</Accordion>
 	);
 };
@@ -479,6 +485,37 @@ const Step8 = () => {
 						/>
 					</div>
 				)}
+			</div>
+		</>
+	);
+};
+
+// cacheSeconds
+const Step9 = () => {
+	const { cacheSeconds, setCacheSeconds } = useStepper();
+	return (
+		<>
+			<div className="step-description">
+				<p>
+					HTTP cache lifetime (rules are applied to infer a default value on a
+					per-badge basis, any values specified below the default will be
+					ignored).
+				</p>
+
+				<div className="example">
+					<span>Example:</span> <code>3600</code>
+				</div>
+			</div>
+			<div className="form-floating mb-3">
+				<input
+					type="text"
+					className="form-control"
+					id="floatingInput"
+					placeholder="HTTP cache lifetime (rules are applied to infer a default value on a per-badge basis, any values specified below the default will be ignored)."
+					value={cacheSeconds}
+					onChange={(e) => setCacheSeconds(e.target.value)}
+				/>
+				<label htmlFor="floatingInput">cacheSeconds</label>
 			</div>
 		</>
 	);

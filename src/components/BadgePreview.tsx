@@ -23,6 +23,7 @@ const BadgePreview: React.FC = () => {
 		label,
 		labelColor,
 		color,
+		cacheSeconds,
 	} = useStepper();
 
 	const [copied, setCopied] = useState<string | null>(null);
@@ -65,6 +66,10 @@ const BadgePreview: React.FC = () => {
 
 	if (color !== "") {
 		queryParams.set("color", color);
+	}
+
+	if (cacheSeconds !== "") {
+		queryParams.set("cacheSeconds", cacheSeconds);
 	}
 
 	if (queryParams.toString()) {
