@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
 
+interface IconOption {
+	value: string;
+	label: string;
+}
+
 const IconSelect = ({ onChange }: { onChange: (value: string) => void }) => {
-	const [options, setOptions] = useState([]);
+	const [options, setOptions] = useState<IconOption[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
@@ -13,25 +18,23 @@ const IconSelect = ({ onChange }: { onChange: (value: string) => void }) => {
 					"https://raw.githubusercontent.com/simple-icons/simple-icons/master/slugs.md",
 				);
 
-				// console.log(response);
-
-				const icons = response.data
+				const icons: IconOption[] = response.data
 					.split("\n")
-					.filter((line: string) => line.includes("|")) // Filter lines containing table data
-					.filter((line: string) => !line.includes("Brand name")) // Remove header row
-					.filter((line: string) => !line.includes(":---")) // Remove separator row
+					.filter((line: string) => line.includes("|"))
+					.filter((line: string) => !line.includes("Brand name"))
+					.filter((line: string) => !line.includes(":---"))
 					.map((line: string) => {
 						const [brandName, brandSlug] = line
 							.split("|")
-							.filter((cell) => cell.trim())
-							.map((cell) => cell.trim());
+							.filter((cell: string) => cell.trim())
+							.map((cell: string) => cell.trim());
 
 						return {
 							value: brandSlug.replace(/`/g, ""),
 							label: brandName.replace(/`/g, ""),
 						};
 					})
-					.filter((icon) => icon.value && icon.label);
+					.filter((icon: IconOption) => icon.value && icon.label);
 
 				setOptions(icons);
 				setIsLoading(false);
@@ -42,10 +45,10 @@ const IconSelect = ({ onChange }: { onChange: (value: string) => void }) => {
 		};
 
 		fetchIcons();
-	}, []); // Empty dependency array for running once on mount
+	}, []);
 
 	return (
-		<Select
+		<Select<IconOption>
 			options={options}
 			isLoading={isLoading}
 			isClearable
